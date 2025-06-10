@@ -1,0 +1,39 @@
+{
+  "name": "wordpress-merlins-potions",
+  "version": "1.0.0",
+  "description": "Repositório e Tema de wordpress criado para treinamento do que foi aprendido no curso do Origamid sobre wordpress como CMS.",
+  "main": "index.php",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "eslint": "^8.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^16.1.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.89.2"
+  },
+  "scripts": {
+    "dev": "npm run dev:css",
+    "dev:css": "sass --watch --no-source-map scss/style.scss style.css --style compressed",
+    "build:css": "sass --no-source-map scss/style.scss style.css --style compressed",
+    "lint": "eslint --ext .js,.jsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "lint:watch": "eslint --ext .js,.jsx --watch .",
+    "format": "prettier --write \"**/*.{js,json,scss,css,html}\"",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stsmath/wordpress-merlins-potions.git"
+  },
+  "author": "Matheus Amaral",
+  "license": "ISC",
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{scss,css,html,json}": [
+      "prettier --write"
+    ]
+  }
+}
