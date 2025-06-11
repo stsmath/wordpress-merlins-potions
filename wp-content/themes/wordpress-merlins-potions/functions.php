@@ -33,4 +33,42 @@ function wp_merlins_style()
   wp_enqueue_style('wp-merlins-potions');
 }
 add_action('wp_enqueue_scripts', 'wp_merlins_style');
+
+//Página com Informações gerais do Header.
+function custom_post_type_cms_header()
+{
+  register_post_type('Custom Elements Header', array(
+    'label' => 'Custom Elements Header',
+    'description' => 'Informações de Campos personalizados do Header',
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'capability_type' => 'post',
+    'map_meta_cap' => true,
+    'hierarchical' => false,
+    'rewrite' => array('slug' => 'Custom Elements Header', 'with_front' => true),
+    'query_var' => true,
+    'supports' => array('title', 'editor', 'page-attributes', 'post-formats'),
+
+    'labels' => array(
+      'name' => 'Custom Elements Header',
+      'singular_name' => 'CMS Header',
+      'menu_name' => 'CMS Header',
+      'add_new' => 'Adicionar Novo',
+      'add_new_item' => 'Adicionar Novo CMS Header',
+      'edit' => 'Editar',
+      'edit_item' => 'Editar CMS Header',
+      'new_item' => 'Novo CMS Header',
+      'view' => 'Ver CMS Header',
+      'view_item' => 'Ver CMS Header',
+      'search_items' => 'Procurar CMS Header',
+      'not_found' => 'Nenhum CMS Header Encontrado',
+      'not_found_in_trash' => 'Nenhum CMS Header Encontrado no Lixo',
+    )
+  ));
+}
+
+add_action('init', 'custom_post_type_cms_header');
+
+//Página com informações gerais do Footer.
 ?>

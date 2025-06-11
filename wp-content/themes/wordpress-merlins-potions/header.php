@@ -20,38 +20,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+  <?php $header = get_post('31'); ?>
   <header class="m-header">
-    <section class="m-header-container">
-      <div class="m-header-container--marca">
-        <a href="/" class="remove-style-link">
-          <h1 class="logo-titulo"><strong>Merlin's</strong> Potions</h1>
-          <p class="logo-subtitulo">- <?php bloginfo('description') ?> -</p>
-        </a>
-      </div>
-      <div class="m-header-container--busca">
-        <?php include(TEMPLATEPATH . '/inc/lupa-busca.php') ?>
-        <input type="text" id="campoBusca" placeholder="Search our stock" />
-      </div>
-      <div class="m-header-container--minicart">
-        <p class="free-shipping">
-          <span class="info-1">Free shipping</span><span class="info-2">on orders over
-            $<?php the_field('valor_frete_gratis') ?></span>
-        </p>
-        <p class="mini-bag">
-          <span class="texto-bag">bag:</span><span class="conta-item">1</span>
-        </p>
-      </div>
-    </section>
-    <section class="m-header-menu">
-      <?php
-      $args = array(
-        'menu' => 'principal',
-        'theme_location' => 'menu-principal',
-        'container' => false,
-      );
-      wp_nav_menu($args);
-      ?>
-      <p class="botao-unico-menu">Clearance!</p>
-    </section>
+    <?php if (!wp_is_mobile()): ?>
+      <?php include(TEMPLATEPATH . '/inc/header/header-desk.php'); ?>
+    <?php else: ?>
+      <?php include(TEMPLATEPATH . '/inc/header/header-mobile.php'); ?>
+    <?php endif; ?>
   </header>
