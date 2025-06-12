@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="m-header-container--busca">
-      <?php include(TEMPLATEPATH . '/inc/lupa-busca.php') ?>
+      <?php include(TEMPLATEPATH . '/inc/icons/lupa-busca.php') ?>
       <input type="text" id="campoBusca" placeholder="<?php the_field('texto_barra_pesquisa', $header); ?>" />
     </div>
     <div class="m-header-container--minicart">
